@@ -1,0 +1,20 @@
+#app {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+button {
+  place-self: center;
+}
+
+pre {
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 80ch;
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: #111;
+  color: #fefefe;
+  font-family: monospace, monospace;
+}

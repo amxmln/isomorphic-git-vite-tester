@@ -20,6 +20,9 @@ install the dependencies. For bundled environments targeting the browser, use
 
 For Node environments, run `npm start` to execute the scripts.
 
+For environments without a build step (unpkg and jsdelivr), you need to serve
+the files of the folder using a local server, e.g. `python3 -m http.server`.
+
 ## How to test the Vite builds
 
 

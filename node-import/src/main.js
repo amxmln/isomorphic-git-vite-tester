@@ -1,25 +1,21 @@
-import './style.css';
-
-import FS from '@isomorphic-git/lightning-fs';
+import fs from 'fs';
 import { clone } from 'isomorphic-git';
-import http from 'isomorphic-git/http/web';
-
-const app = document.querySelector('#app');
-const output = document.createElement('pre');
-const cloneButton = document.createElement('button');
+import http from 'isomorphic-git/http/node';
+import path from 'path';
 
 function log(text) {
-  output.innerText += `\n${text}`;
+  console.log(text);
 }
 
 async function startClone() {
-  log('\n\nCleaning up');
-  const fs = new FS('fs', { wipe: true });
-  const dir = '/tutorial';
+  const dir = path.join(process.cwd(), 'clone-output', 'tutorial');
   let lastPhase;
 
+  log('\n\nCleaning up');
+  if (fs.existsSync(path)) await fs.promises.rmdir(dir, { recursive: true });
+
   log('Creating dir');
-  await fs.promises.mkdir(dir);
+  await fs.promises.mkdir(dir, { recursive: true });
 
   log('Starting clone of "https://github.com/isomorphic-git/isomorphic-git"');
   try {
@@ -47,8 +43,4 @@ async function startClone() {
   }
 }
 
-cloneButton.innerText = 'Start clone';
-cloneButton.addEventListener('click', startClone);
-
-app.appendChild(cloneButton);
-app.appendChild(output);
+startClone();

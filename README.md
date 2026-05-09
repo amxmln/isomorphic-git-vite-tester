@@ -1,28 +1,35 @@
-# Minimal Example to test cloning in the browser with Vite
+# Minimal Example to test cloning in different contexts and bundlers
 
 This is a minimal example using `isomorphic-git` to clone its own repository in
-the browser. It uses `vite` to bundle the code.
+the browser and node.
 
 Without applying the fix mentioned in [#2309](https://github.com/isomorphic-git/isomorphic-git/pull/2309/)
-this will fail with an error.
+this will fail with an error for Vite bundles in the browser.
 
 As soon as the fix is applied, the clone will work without an issue both during
-development and after build.
+development and after build in any environment.
 
-## How to test
+## Setup
 
-After cloning and switching into the directory, run these commands:
+Each sub-folder of this repository contains **self-contained** examples of cloning
+using different bundlers and environments.
 
-```sh
-$ npm i
-$ npm run dev
-```
+Switch to the directory of the example you’d like to test and run `npm i` to
+install the dependencies. For bundled environments targeting the browser, use
+`npm run dev` or `npm run build` to generate the bundles and run the examples.
 
-Then open the displayed page in the browser. Then click "Start clone" and observe
-the output in the `<pre>` below. There should be an error.
+For Node environments, run `npm start` to execute the scripts.
 
-Apply the fix and if necessary clean the Vite cache by running
-`rm -r node_modules/.vite`. Then run `npm run dev` again and test once more.
+## How to test the Vite builds
+
+
+After running `npm run dev` open the displayed page in the browser.
+Then click "Start clone" and observe the output in the `<pre>` below.
+There should be an error.
+
+Apply the fix mentioned in [#2309](https://github.com/isomorphic-git/isomorphic-git/pull/2309/)
+and if necessary clean the Vite cache by running `rm -r node_modules/.vite`.
+Then run `npm run dev` again and test once more.
 This time the clone should succeed and list the contents of the repo.
 
 The script cleans up the file system on each run, so the button can be clicked

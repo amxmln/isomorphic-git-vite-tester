@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "isomorphic-git": "^1.37.6"
+  },
+  "scripts": {
+    "start": "node src/main.js"
+  },
+"type": "module"
+}

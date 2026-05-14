@@ -1,0 +1,19 @@
+{
+  "name": "iso-git-tester",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "devDependencies": {
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2"
+  },
+  "dependencies": {
+    "@isomorphic-git/lightning-fs": "^4.6.2",
+    "buffer": "^6.0.3",
+    "isomorphic-git": "^1.37.6"
+  }
+}

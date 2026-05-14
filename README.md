@@ -23,8 +23,12 @@ For Node environments, run `npm start` to execute the scripts.
 For environments without a build step (unpkg and jsdelivr), you need to serve
 the files of the folder using a local server, e.g. `python3 -m http.server`.
 
-## How to test the Vite builds
+For the webpack-environment, run `npm i` followed by `npx webpack`. This will
+throw an error. Once the fix is applied, running `npx webpack` works with just
+a warning because the mode has not been set and serving the folder with a local
+web server like outlined above and performing the clone in the browser will work.
 
+## How to test the Vite builds
 
 After running `npm run dev` open the displayed page in the browser.
 Then click "Start clone" and observe the output in the `<pre>` below.
